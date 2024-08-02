@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="calculator.css">
+  <title>Calculator</title>
+</head>
+<body>
+  <div class="calculator">
+
+    <div class="calculator-header">
+      <h2>Calculator</h2>
+    </div>
+
+    <div id="display" class="display">0</div>
+    
+    <div class="container">
+      <button onclick="cleardisplay()">C</button>
+      <button onclick="appenddisplay('/')">/</button>
+      <button onclick="appenddisplay('*')">*</button>
+      <button onclick="appenddisplay('-')">-</button>
+      <button onclick="appenddisplay('7')">7</button>
+      <button onclick="appenddisplay('8')">8</button>
+      <button onclick="appenddisplay('9')">9</button>
+      <button onclick="appenddisplay('+')">+</button>
+      <button onclick="appenddisplay('4')">4</button>
+      <button onclick="appenddisplay('5')">5</button>
+      <button onclick="appenddisplay('6')">6</button>
+      <button onclick="calculateresult()">=</button>
+      <button onclick="appenddisplay('1')">1</button>
+      <button onclick="appenddisplay('2')">2</button>
+      <button onclick="appenddisplay('3')">3</button>
+      <button onclick="appenddisplay('0')">0</button>
+      <button onclick="appenddisplay('.')">.</button>
+    </div>
+
+  </div>
+</body>
+</html>
+
+
+    <script>
+        function cleardisplay() {
+            document.getElementById('display').innerText = '0';
+        }
+
+        function appenddisplay(value) {
+            const display = document.getElementById('display');
+            if (display.innerText === '0') {
+                display.innerText = value;
+            } else {
+                display.innerText += value;
+            }
+        }
+
+        function calculateresult() {
+            const display = document.getElementById('display');
+            try {
+                display.innerText = eval(display.innerText);
+            } catch {
+                display.innerText = 'Error';
+            }
+        }
+    </script>
+</body>
+</html>
